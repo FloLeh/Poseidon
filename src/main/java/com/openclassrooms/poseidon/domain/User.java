@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "users")
-public class User {
+public class User  implements DomainEntity<User> {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
@@ -21,4 +21,9 @@ public class User {
     private String fullname;
     @NotBlank(message = "Role is mandatory")
     private String role;
+
+    public void update(User entity) {
+        username = entity.getUsername();
+        fullname = entity.getFullname();
+    }
 }

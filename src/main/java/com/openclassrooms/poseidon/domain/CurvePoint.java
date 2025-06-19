@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "curvepoint")
-public class CurvePoint {
+public class CurvePoint  implements DomainEntity {
     // TODO: Map columns in data table CURVEPOINT with corresponding java fields
 
     @Id

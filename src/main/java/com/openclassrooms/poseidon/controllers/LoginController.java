@@ -3,9 +3,9 @@ package com.openclassrooms.poseidon.controllers;
 import com.openclassrooms.poseidon.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("app")
@@ -15,26 +15,20 @@ public class LoginController {
     final private UserRepository userRepository;
 
     @GetMapping("login")
-    public ModelAndView login() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("login");
-        return mav;
+    public String login() {
+        return "login";
     }
 
     @GetMapping("secure/article-details")
-    public ModelAndView getAllUserArticles() {
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("users", userRepository.findAll());
-        mav.setViewName("user/list");
-        return mav;
+    public String getAllUserArticles(Model model) {
+        model.addAttribute("users", userRepository.findAll());
+        return "user/list";
     }
 
     @GetMapping("error")
-    public ModelAndView error() {
-        ModelAndView mav = new ModelAndView();
+    public String error(Model model) {
         String errorMessage= "You are not authorized for the requested data.";
-        mav.addObject("errorMsg", errorMessage);
-        mav.setViewName("403");
-        return mav;
+        model.addAttribute("errorMsg", errorMessage);
+        return "403";
     }
 }

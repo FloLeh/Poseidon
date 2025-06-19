@@ -6,7 +6,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "rating")
-public class Rating {
+public class Rating  implements DomainEntity<Rating> {
     // TODO: Map columns in data table RATING with corresponding java fields
 
     @Id

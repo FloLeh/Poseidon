@@ -1,7 +1,9 @@
 package com.openclassrooms.poseidon.controllers;
 
 import com.openclassrooms.poseidon.domain.BidList;
+import com.openclassrooms.poseidon.services.BidListService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,13 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+@RequiredArgsConstructor
 public class BidListController {
     // TODO: Inject Bid service
+    private final BidListService bidListService;
 
     @RequestMapping("/bidList/list")
     public String home(Model model)
     {
         // TODO: call service find all bids to show to the view
+        model.addAttribute("bidLists", bidListService.getAllBidLists());
         return "bidList/list";
     }
 
@@ -37,6 +42,7 @@ public class BidListController {
     @GetMapping("/bidList/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
         // TODO: get Bid by Id and to model then show to the form
+        model.addAttribute("bidList", bidListService.getBidListById(id));
         return "bidList/update";
     }
 
