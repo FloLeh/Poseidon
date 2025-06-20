@@ -3,13 +3,17 @@ package com.openclassrooms.poseidon.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Entity
 @Data
 @Table(name = "users")
-public class User  implements DomainEntity<User> {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User implements DomainEntity<User> {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
