@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "rating")
+@Table(name = "Rating")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Rating implements DomainEntity<Rating> {

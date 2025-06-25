@@ -1,9 +1,9 @@
 package com.openclassrooms.poseidon.repositories;
 
 import com.openclassrooms.poseidon.domain.CurvePoint;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-
-public interface CurvePointRepository extends JpaRepository<CurvePoint, Integer> {
+@Repository
+public interface CurvePointRepository extends CrudRepository<CurvePoint> {
 
 }

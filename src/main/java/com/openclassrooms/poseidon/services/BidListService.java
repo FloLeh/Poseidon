@@ -1,11 +1,18 @@
 package com.openclassrooms.poseidon.services;
 
+
 import com.openclassrooms.poseidon.domain.BidList;
+import com.openclassrooms.poseidon.repositories.BidListRepository;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+@Service
+public class BidListService extends AbstractCrudService<BidList> {
+    public BidListService(BidListRepository repository) {
+        super(repository);
+    }
 
-public interface BidListService {
-    List<BidList> getAllBidLists();
-    BidList getBidListById(int id);
+    @Override
+    public BidList getById(Integer id) {
+        return repository.findById(id).orElse(null);
+    }
 }

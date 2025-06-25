@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Data
-@Table(name = "trade")
+@Table(name = "Trade")
 @NoArgsConstructor
 public class Trade implements DomainEntity<Trade> {
 

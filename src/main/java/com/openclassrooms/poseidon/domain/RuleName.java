@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "rulename")
+@Table(name = "Rulename")
 @AllArgsConstructor
 @NoArgsConstructor
 public class RuleName implements DomainEntity<RuleName> {

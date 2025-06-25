@@ -3,6 +3,7 @@ package com.openclassrooms.poseidon.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,12 +12,13 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "bidlist")
+@Table(name = "BidList")
 @NoArgsConstructor
 public class BidList implements DomainEntity<BidList> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "BidListId")
     private Integer BidListId;
 
     @NotBlank
@@ -25,7 +27,7 @@ public class BidList implements DomainEntity<BidList> {
     @NotBlank
     String type;
 
-    @NotBlank
+    @Positive
     Double bidQuantity;
 
     Double askQuantity;

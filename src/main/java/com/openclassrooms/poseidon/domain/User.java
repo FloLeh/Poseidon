@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "users")
+@Table(name = "Users")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements DomainEntity<User> {

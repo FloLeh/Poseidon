@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "curvepoint")
+@Table(name = "Curvepoint")
 @NoArgsConstructor
 public class CurvePoint implements DomainEntity<CurvePoint> {
 
