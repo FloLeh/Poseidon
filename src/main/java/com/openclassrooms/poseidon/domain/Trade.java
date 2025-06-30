@@ -2,6 +2,7 @@ package com.openclassrooms.poseidon.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,7 +24,7 @@ public class Trade implements DomainEntity<Trade> {
     @NotBlank
     String type;
 
-    @NotBlank
+    @Positive
     Double buyQuantity;
 
     Double sellQuantity;

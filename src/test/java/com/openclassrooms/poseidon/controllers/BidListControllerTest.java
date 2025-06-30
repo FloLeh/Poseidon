@@ -62,8 +62,8 @@ public class BidListControllerTest {
                         .param("bidQuantity", "100")
                         .with(csrf())
                 )
-                .andExpect(status().isOk())
-                .andExpect(view().name("bidList/list"));
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/bidList/list"));
 
         verify(bidListService, times(1)).create(any());
     }
@@ -112,7 +112,7 @@ public class BidListControllerTest {
                         .param("type", bidList.getType())
                         .param("bidQuantity", String.valueOf(bidList.getBidQuantity()))
                         .with(csrf()))
-                .andExpect(status().isOk());
+                .andExpect(status().is3xxRedirection());
     }
 
     @Test
@@ -142,9 +142,9 @@ public class BidListControllerTest {
 
         doNothing().when(bidListService).deleteById(bidListToDelete.getId());
 
-        mockMvc.perform(delete("/bidList/delete/" + bidListToDelete.getId())
+        mockMvc.perform(get("/bidList/delete/" + bidListToDelete.getId())
                         .with(csrf()))
-                .andExpect(status().isOk());
+                .andExpect(status().is3xxRedirection());
 
         verify(bidListService, times(1)).deleteById(bidListToDelete.getId());
     }
