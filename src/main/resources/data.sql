@@ -6,7 +6,7 @@ drop table RuleName;
 drop table Users;
 
 CREATE TABLE BidList (
-                         BidListId tinyint(4) NOT NULL AUTO_INCREMENT,
+                         BidListId INT NOT NULL AUTO_INCREMENT,
                          account VARCHAR(30) NOT NULL,
                          type VARCHAR(30) NOT NULL,
                          bidQuantity DOUBLE,
@@ -33,7 +33,7 @@ CREATE TABLE BidList (
 );
 
 CREATE TABLE Trade (
-                       TradeId tinyint(4) NOT NULL AUTO_INCREMENT,
+                       TradeId INT NOT NULL AUTO_INCREMENT,
                        account VARCHAR(30) NOT NULL,
                        type VARCHAR(30) NOT NULL,
                        buyQuantity DOUBLE,
@@ -59,7 +59,7 @@ CREATE TABLE Trade (
 );
 
 CREATE TABLE CurvePoint (
-                            Id tinyint(4) NOT NULL AUTO_INCREMENT,
+                            Id INT NOT NULL AUTO_INCREMENT,
                             CurveId tinyint,
                             asOfDate TIMESTAMP,
                             term DOUBLE ,
@@ -70,7 +70,7 @@ CREATE TABLE CurvePoint (
 );
 
 CREATE TABLE Rating (
-                        Id tinyint(4) NOT NULL AUTO_INCREMENT,
+                        Id INT NOT NULL AUTO_INCREMENT,
                         moodysRating VARCHAR(125),
                         sandPRating VARCHAR(125),
                         fitchRating VARCHAR(125),
@@ -80,7 +80,7 @@ CREATE TABLE Rating (
 );
 
 CREATE TABLE RuleName (
-                          Id tinyint(4) NOT NULL AUTO_INCREMENT,
+                          Id INT NOT NULL AUTO_INCREMENT,
                           name VARCHAR(125),
                           description VARCHAR(125),
                           json VARCHAR(125),
@@ -92,7 +92,7 @@ CREATE TABLE RuleName (
 );
 
 CREATE TABLE Users (
-                       Id tinyint(4) NOT NULL AUTO_INCREMENT,
+                       Id INT NOT NULL AUTO_INCREMENT,
                        username VARCHAR(125),
                        password VARCHAR(125),
                        fullname VARCHAR(125),
