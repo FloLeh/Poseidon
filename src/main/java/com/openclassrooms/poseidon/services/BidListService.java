@@ -11,8 +11,4 @@ public class BidListService extends AbstractCrudService<BidList> {
         super(repository);
     }
 
-    @Override
-    public BidList getById(Integer id) {
-        return repository.findById(id).orElse(null);
-    }
 }

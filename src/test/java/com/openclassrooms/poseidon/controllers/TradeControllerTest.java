@@ -31,7 +31,7 @@ public class TradeControllerTest {
 
     @Test
     @WithMockUser(username = "user")
-    public void bidListPage_shouldDisplayThePageWithBidLists() throws Exception {
+    public void tradePage_shouldDisplayThePageWithTrades() throws Exception {
         given(tradeService.findAll()).willReturn(List.of());
 
         mockMvc.perform(get("/trade/list"))
@@ -53,7 +53,7 @@ public class TradeControllerTest {
 
     @Test
     @WithMockUser(username = "user")
-    public void tradeValidateSubmit_shouldDisplaySaveTheBidList() throws Exception {
+    public void tradeValidateSubmit_shouldDisplaySaveTheTrade() throws Exception {
         given(tradeService.create(any())).willReturn(1);
 
         mockMvc.perform(post("/trade/validate")
@@ -86,7 +86,7 @@ public class TradeControllerTest {
 
     @Test
     @WithMockUser(username = "user")
-    public void tradeUpdatePage_shouldDisplayTheBidList() throws Exception {
+    public void tradeUpdatePage_shouldDisplayTheTrade() throws Exception {
         Trade trade = new Trade();
         trade.setTradeId(1);
         given(tradeService.getById(trade.getId())).willReturn(trade);
@@ -100,7 +100,7 @@ public class TradeControllerTest {
 
     @Test
     @WithMockUser(username = "user")
-    public void tradeUpdateSubmit_shouldUpdateTheBidList() throws Exception {
+    public void tradeUpdateSubmit_shouldUpdateTheTrade() throws Exception {
         Trade tradeToUpdate = new Trade();
         tradeToUpdate.setTradeId(1);
 
@@ -136,7 +136,7 @@ public class TradeControllerTest {
 
     @Test
     @WithMockUser(username = "user")
-    public void tradeDelete_shouldDeleteTheBidList() throws Exception {
+    public void tradeDelete_shouldDeleteTheTrade() throws Exception {
         Trade tradeToDelete = new Trade();
         tradeToDelete.setTradeId(1);
 

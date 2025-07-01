@@ -1,7 +1,7 @@
 package com.openclassrooms.poseidon.services;
 
 import com.openclassrooms.poseidon.domain.DomainEntity;
-import com.openclassrooms.poseidon.exceptions.UserNotFoundException;
+import com.openclassrooms.poseidon.exceptions.EntityNotFoundException;
 import com.openclassrooms.poseidon.repositories.CrudRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public abstract class AbstractCrudService<DOMAIN_ENTITY extends DomainEntity<DOM
 
     @Override
     public DOMAIN_ENTITY getById(Integer id) {
-        return repository.findById(id).orElseThrow(UserNotFoundException::new);
+        return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
     @Override
@@ -36,7 +36,7 @@ public abstract class AbstractCrudService<DOMAIN_ENTITY extends DomainEntity<DOM
 
     @Override
     public void update(DOMAIN_ENTITY object, Integer id) {
-        DOMAIN_ENTITY objectToUpdate = repository.findById(id).orElseThrow(UserNotFoundException::new);
+        DOMAIN_ENTITY objectToUpdate = repository.findById(id).orElseThrow(EntityNotFoundException::new);
 
         objectToUpdate.update(object);
 

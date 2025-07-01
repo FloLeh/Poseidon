@@ -47,9 +47,11 @@ public class BidListController {
 
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
-                             BindingResult result) {
+                             BindingResult result, Model model) {
 
         if (result.hasErrors()) {
+            bidList.setBidListId(id); // l'id se perd quand on trigger 2 fois une erreur
+            model.addAttribute("bidList", bidList);
             return "bidList/update";
         }
         bidListService.update(bidList, id);

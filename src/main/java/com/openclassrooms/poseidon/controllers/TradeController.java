@@ -45,8 +45,10 @@ public class TradeController {
 
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
-                             BindingResult result) {
+                             BindingResult result, Model model) {
         if (result.hasErrors()) {
+            trade.setTradeId(id); // l'id se perd quand on trigger 2 fois une erreur
+            model.addAttribute("trade", trade);
             return "trade/update";
         }
 
