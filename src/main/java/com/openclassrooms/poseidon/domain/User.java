@@ -26,8 +26,10 @@ public class User implements DomainEntity<User> {
     @NotBlank(message = "Role is mandatory")
     private String role;
 
-    public void update(User entity) {
-        username = entity.getUsername();
-        fullname = entity.getFullname();
+    public void update(User user) {
+        username = user.getUsername();
+        password = user.getPassword();
+        fullname = user.getFullname();
+        role = user.getRole();
     }
 }

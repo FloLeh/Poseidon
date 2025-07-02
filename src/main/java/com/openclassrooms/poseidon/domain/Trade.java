@@ -1,6 +1,8 @@
 package com.openclassrooms.poseidon.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,45 +18,48 @@ public class Trade implements DomainEntity<Trade> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer tradeId;
 
-    String account;
+    @NotBlank
+    private String account;
 
-    String type;
+    @NotBlank
+    private String type;
 
-    Double buyQuantity;
+    @Positive
+    private Double buyQuantity;
 
-    Double sellQuantity;
+    private Double sellQuantity;
 
-    Double buyPrice;
+    private Double buyPrice;
 
-    Double sellPrice;
+    private Double sellPrice;
 
-    String benchmark;
+    private String benchmark;
 
-    Timestamp tradeDate;
+    private Timestamp tradeDate;
 
-    String security;
+    private String security;
 
-    String status;
+    private String status;
 
-    String trader;
+    private String trader;
 
-    String book;
+    private String book;
 
-    String creationName;
+    private String creationName;
 
-    Timestamp creationDate;
+    private Timestamp creationDate;
 
-    String revisionName;
+    private String revisionName;
 
-    Timestamp revisionDate;
+    private Timestamp revisionDate;
 
-    String dealName;
+    private String dealName;
 
-    String dealType;
+    private String dealType;
 
-    String sourceListId;
+    private String sourceListId;
 
-    String side;
+    private String side;
 
     public Integer getId() {
         return tradeId;

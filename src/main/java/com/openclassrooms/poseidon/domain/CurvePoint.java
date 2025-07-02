@@ -2,6 +2,7 @@ package com.openclassrooms.poseidon.domain;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,15 +19,18 @@ public class CurvePoint implements DomainEntity<CurvePoint> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    Integer curveId;
+    @Positive
+    private Integer curveId;
 
-    Timestamp asOfDate;
+    private Timestamp asOfDate;
 
-    Double term;
+    @Positive
+    private Double term;
 
-    Double value;
+    @Positive
+    private Double value;
 
-    Timestamp creationDate = Timestamp.valueOf(LocalDateTime.now());
+    private Timestamp creationDate = Timestamp.valueOf(LocalDateTime.now());
 
     public CurvePoint(Integer curveId, Double term, Double value) {
         this.curveId = curveId;

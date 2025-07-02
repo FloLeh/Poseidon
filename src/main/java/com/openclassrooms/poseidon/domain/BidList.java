@@ -2,6 +2,8 @@ package com.openclassrooms.poseidon.domain;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,47 +21,50 @@ public class BidList implements DomainEntity<BidList> {
     @Column(name = "BidListId")
     private Integer BidListId;
 
-    String account;
+    @NotBlank
+    private String account;
 
-    String type;
+    @NotBlank
+    private String type;
 
-    Double bidQuantity;
+    @Positive
+    private Double bidQuantity;
 
-    Double askQuantity;
+    private Double askQuantity;
 
-    Double bid;
+    private Double bid;
 
-    Double ask;
+    private Double ask;
 
-    String benchmark;
+    private String benchmark;
 
-    Timestamp bidListDate;
+    private Timestamp bidListDate;
 
-    String commentary;
+    private String commentary;
 
-    String security;
+    private String security;
 
-    String status;
+    private String status;
 
-    String trader;
+    private String trader;
 
-    String book;
+    private String book;
 
-    String creationName;
+    private String creationName;
 
-    Timestamp creationDate = Timestamp.valueOf(LocalDateTime.now());
+    private Timestamp creationDate = Timestamp.valueOf(LocalDateTime.now());
 
-    String revisionName;
+    private String revisionName;
 
-    Timestamp revisionDate;
+    private Timestamp revisionDate;
 
-    String dealName;
+    private String dealName;
 
-    String dealType;
+    private String dealType;
 
-    String sourceListId;
+    private String sourceListId;
 
-    String side;
+    private String side;
 
     public Integer getId() {
         return BidListId;

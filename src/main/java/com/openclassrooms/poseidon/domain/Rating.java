@@ -1,6 +1,8 @@
 package com.openclassrooms.poseidon.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,14 +18,18 @@ public class Rating implements DomainEntity<Rating> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    String moodysRating;
+    @NotBlank
+    private String moodysRating;
 
-    String sandPRating;
-    
-    String fitchRating;
+    @NotBlank
+    private String sandPRating;
+
+    @NotBlank
+    private String fitchRating;
 
     @Column(name = "orderNumber")
-    Integer order;
+    @Positive
+    private Integer order;
 
     public Rating(String moodysRating, String sandPRating, String fitchRating, Integer order) {
         this.moodysRating = moodysRating;
