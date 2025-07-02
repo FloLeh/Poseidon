@@ -1,7 +1,6 @@
 package com.openclassrooms.poseidon.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,24 +16,18 @@ public class RuleName implements DomainEntity<RuleName> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @NotBlank
     private String name;
 
-    @NotBlank
     private String description;
 
-    @NotBlank
     private String json;
 
     @Column(length = 512)
-    @NotBlank
     private String template;
 
-    @NotBlank
     @Column(name = "sqlStr")
     private String sql;
 
-    @NotBlank
     private String sqlPart;
 
     public RuleName(String name, String description, String json, String template, String sql, String sqlPart) {

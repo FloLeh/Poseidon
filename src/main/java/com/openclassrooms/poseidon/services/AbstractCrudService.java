@@ -2,22 +2,19 @@ package com.openclassrooms.poseidon.services;
 
 import com.openclassrooms.poseidon.domain.DomainEntity;
 import com.openclassrooms.poseidon.exceptions.EntityNotFoundException;
-import com.openclassrooms.poseidon.repositories.CrudRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.util.Assert;
 
 import java.util.List;
 
 @Slf4j
-@Service
 public abstract class AbstractCrudService<DOMAIN_ENTITY extends DomainEntity<DOMAIN_ENTITY>> implements CrudInterface<DOMAIN_ENTITY> {
-    protected final CrudRepository<DOMAIN_ENTITY> repository;
+    protected final JpaRepository<DOMAIN_ENTITY, Integer> repository;
 
-    public AbstractCrudService(CrudRepository<DOMAIN_ENTITY> repository) {
+    protected AbstractCrudService(JpaRepository<DOMAIN_ENTITY, Integer> repository) {
         this.repository = repository;
     }
-
 
     @Override
     public DOMAIN_ENTITY getById(Integer id) {
