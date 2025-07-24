@@ -15,7 +15,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfig {
 
     private static final String[] PUBLIC_ROUTES = {
-            "/login"
+            "/login",
+            "/"
     };
 
     @Bean
@@ -25,6 +26,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(withDefaults())
+                .formLogin(formLogin -> formLogin.defaultSuccessUrl("/bidList/list", true))
                 .build();
     }
 
