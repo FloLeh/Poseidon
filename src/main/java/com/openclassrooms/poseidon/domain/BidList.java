@@ -3,6 +3,7 @@ package com.openclassrooms.poseidon.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class BidList implements DomainEntity<BidList> {
     @NotBlank
     private String type;
 
+    @NotNull
     @Positive
     private Double bidQuantity;
 
