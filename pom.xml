@@ -82,6 +82,10 @@
             <version>0.8.12</version>
             <type>maven-plugin</type>
         </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
